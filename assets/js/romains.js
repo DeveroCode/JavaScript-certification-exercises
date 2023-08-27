@@ -14,6 +14,15 @@ const object = {
     I: 1,
 }
 
-function romainNumber() {
+function convertToRoman(number) {
+    let result = '';
 
+    for (let roman in object) {
+        result += roman.repeat(Math.floor(number / object[roman]));
+        number = number % object[roman]
+    };
+
+    return result;
 }
+
+console.log(convertToRoman(1200));
